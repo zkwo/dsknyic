@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Demon Style — Mobile Landing</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body,html{height:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#000;color:#fff;overflow-x:hidden}
+.hero{position:relative;height:100vh;width:100%;overflow:hidden}
+.hero video{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:1}
+.hero-overlay{position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:20px;z-index:2;background:rgba(0,0,0,0.35);animation:fadeIn 1.5s ease-in-out forwards}
+.hero-logo img{max-width:220px;width:80%;margin-bottom:25px;animation:fadeUp 1s ease-in-out forwards}
+.hero-buttons{display:flex;flex-direction:column;gap:14px;width:100%;max-width:240px;animation:fadeUp 1.3s ease-in-out forwards}
+.hero-buttons button{padding:14px;border:none;border-radius:8px;font-size:16px;font-weight:bold;cursor:pointer;letter-spacing:1px;transition:transform 0.2s}
+.hero-buttons button:active{transform:scale(0.96)}
+.btn-primary{background:#ff3b65;color:#fff}
+.btn-secondary{background:transparent;color:#fff;border:2px solid #fff}
+section{padding:50px 20px;text-align:center;animation:fadeSection 1s ease-in-out forwards}
+section img{max-width:100%;border-radius:8px;margin-top:20px}
+.trailer-modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.95);display:none;align-items:center;justify-content:center;z-index:999}
+.trailer-modal iframe{width:90%;height:50%;border:none;border-radius:8px}
+.trailer-modal.active{display:flex;animation:fadeIn 0.3s ease-in-out forwards}
+.trailer-close{position:absolute;top:20px;right:20px;font-size:24px;cursor:pointer;color:#fff}
+footer{padding:20px;text-align:center;font-size:14px;color:#aaa;background:#000}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeSection{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+</style>
+</head>
+<body>
+<div class="hero">
+  <video autoplay muted loop playsinline>
+    <source src="/assets/hero.mp4" type="video/mp4">
+  </video>
+  <div class="hero-overlay">
+    <div class="hero-logo">
+      <img src="/assets/logo.png" alt="Logo">
+    </div>
+    <div class="hero-buttons">
+      <button class="btn-primary" id="watchTrailer">WATCH TRAILER</button>
+      <button class="btn-secondary">GET TICKETS</button>
+    </div>
+  </div>
+</div>
+
+<section>
+  <h2>Synopsis</h2>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nanti diganti sendiri.</p>
+  <img src="/assets/poster.jpg" alt="Poster">
+</section>
+
+<section>
+  <h2>Gallery</h2>
+  <img src="/assets/bgoverlay.mp4" alt="Gallery Image">
+</section>
+
+<footer>
+  &copy; 2025 Demon Style. All Rights Reserved.
+</footer>
+
+<div class="trailer-modal" id="trailerModal">
+  <div class="trailer-close" id="closeTrailer">✕</div>
+  <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+</div>
+
+<script>
+const watchBtn=document.getElementById('watchTrailer');
+const trailerModal=document.getElementById('trailerModal');
+const closeBtn=document.getElementById('closeTrailer');
+watchBtn.addEventListener('click',()=>{trailerModal.classList.add('active');});
+closeBtn.addEventListener('click',()=>{trailerModal.classList.remove('active');});
+</script>
+</body>
+</html>
