@@ -1,1 +1,194 @@
-    /* 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Demon Slayer: Infinity Castle</title>
+  <style>
+    :root {
+      --glass-bg: rgba(255, 255, 255, 0.08);
+      --glass-border: rgba(255, 255, 255, 0.2);
+      --text-color: #fff;
+      --muted: rgba(255, 255, 255, 0.7);
+    }
+
+    /* Background video */
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow-x: hidden;
+      font-family: Arial, sans-serif;
+      color: var(--text-color);
+    }
+    .video-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1;
+    }
+    .video-background video {
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    h1, h2 {
+      font-weight: bold;
+    }
+
+    /* Glass box */
+    .glass-box {
+      background: var(--glass-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 16px;
+      border: 1px solid var(--glass-border);
+      padding: 24px;
+      margin-bottom: 48px;
+    }
+
+    /* Header + Buy Ticket */
+    .header-box {
+      text-align: center;
+      padding: 40px 20px;
+    }
+    .header-box h1 {
+      font-size: 40px;
+      margin-bottom: 20px;
+    }
+    .buy-ticket-btn {
+      background: rgba(255, 0, 60, 0.8);
+      color: white;
+      padding: 14px 32px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .buy-ticket-btn:hover {
+      background: rgba(255, 0, 60, 1);
+    }
+
+    /* Poster */
+    .poster-center img {
+      max-width: 320px;
+      width: 100%;
+      display: block;
+      margin: auto;
+      border-radius: 12px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    /* Synopsis */
+    .synopsis p {
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* Cast */
+    .cast-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+    .cast-item {
+      text-align: center;
+    }
+    .cast-item img {
+      width: 100%;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .cast-item p {
+      margin-top: 8px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    /* Trailer */
+    .trailer-box iframe {
+      width: 100%;
+      height: 480px;
+      border-radius: 12px;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- Background video -->
+  <div class="video-background">
+    <video autoplay loop muted>
+      <source src="/assets/infinity-castle-bg.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <div class="container">
+    <!-- Header + Buy Ticket -->
+    <div class="glass-box header-box">
+      <h1>Demon Slayer: Infinity Castle</h1>
+      <button class="buy-ticket-btn">Buy Ticket</button>
+    </div>
+
+    <!-- Official Poster -->
+    <section id="poster" class="glass-box">
+      <h2>Official Poster</h2>
+      <div class="poster-center">
+        <img src="/assets/demon-slayer-infinity-castle.jpg" alt="Official Poster">
+      </div>
+    </section>
+
+    <!-- Synopsis -->
+    <section id="synopsis" class="glass-box synopsis">
+      <h2>Synopsis</h2>
+      <p>
+        Tanjiro Kamado, a kind-hearted boy who sells charcoal for a living, finds his family slaughtered by demons.
+        His sister Nezuko is the only survivor, but she has been transformed into a demon herself. Determined to find
+        a cure for her and avenge his family, Tanjiro becomes a Demon Slayer.
+      </p>
+    </section>
+
+    <!-- Cast -->
+    <section id="cast" class="glass-box">
+      <h2>Cast</h2>
+      <div class="cast-list">
+        <div class="cast-item">
+          <img src="/assets/cast-tanjiro.jpg" alt="Tanjiro Kamado">
+          <p>Natsuki Hanae<br><small>Tanjiro Kamado</small></p>
+        </div>
+        <div class="cast-item">
+          <img src="/assets/cast-nezuko.jpg" alt="Nezuko Kamado">
+          <p>Akari Kitō<br><small>Nezuko Kamado</small></p>
+        </div>
+        <div class="cast-item">
+          <img src="/assets/cast-zenitsu.jpg" alt="Zenitsu Agatsuma">
+          <p>Hiro Shimono<br><small>Zenitsu Agatsuma</small></p>
+        </div>
+        <div class="cast-item">
+          <img src="/assets/cast-inosuke.jpg" alt="Inosuke Hashibira">
+          <p>Yoshitsugu Matsuoka<br><small>Inosuke Hashibira</small></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trailer -->
+    <section id="trailer" class="glass-box trailer-box">
+      <h2>Official Trailer</h2>
+      <iframe src="https://www.youtube.com/embed/example" allowfullscreen></iframe>
+    </section>
+  </div>
+</body>
+</html>
+
