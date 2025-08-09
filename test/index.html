@@ -1,262 +1,178 @@
 <!doctype html>
-<!--
-  Single-file HTML landing page inspired by the visual style of modern movie microsites.
-  Replace image/video placeholders with your own assets. This is an original implementation
-  (do not copy text/media from the referenced site). -->
 <html lang="id">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Demon Style — Movie Landing (Fanpage)</title>
-  <meta name="description" content="Official-style landing page: hero video, trailer modal, gallery, and neon/glass UI." />
-  <style>
-    :root{
-      --bg:#07060a; --glass: rgba(255,255,255,0.04);
-      --accent:#ff3b65; --accent-2:#ffb86b; --neon: 0 0 18px rgba(255,59,101,.18), 0 0 60px rgba(255,59,101,.06);
-      --max-width:1100px; --muted:rgba(255,255,255,0.6);
-      --glass-border: rgba(255,255,255,0.06);
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-      background: radial-gradient(ellipse at 10% 10%, rgba(255,59,101,0.04), transparent 10%),
-                  linear-gradient(180deg,#08060b 0%, #05040a 100%);
-      color:#fff; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
-      overflow-x:hidden;
-    }
-    /* ROOT LAYOUT */
-    .wrap{max-width:var(--max-width);margin:0 auto;padding:28px}
-    nav{display:flex;align-items:center;justify-content:space-between;padding:6px 0}
-    .logo{display:flex;gap:12px;align-items:center}
-    .logo .brand{font-weight:700;letter-spacing:0.6px}
-    .nav-links{display:flex;gap:18px;align-items:center}
-    .btn{background:linear-gradient(90deg,var(--accent),var(--accent-2));padding:10px 16px;border-radius:12px;border:none;color:#fff;font-weight:600;box-shadow:var(--neon);cursor:pointer}
-
-    /* HERO */
-    .hero{position:relative;height:78vh;min-height:520px;display:flex;align-items:center}
-    .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,6,10,0.25),rgba(7,6,10,0.6));pointer-events:none}
-    .hero-media{position:absolute;inset:0;overflow:hidden}
-    .hero-media video, .hero-media img{width:100%;height:100%;object-fit:cover;filter:contrast(1.08) saturate(1.05) hue-rotate(-6deg)}
-    .hero-inner{position:relative;z-index:3;display:flex;gap:32px;align-items:center;padding:36px}
-    .copy{max-width:620px}
-    .kicker{display:inline-block;background:linear-gradient(90deg,#ff6a95,#ffb86b);padding:6px 12px;border-radius:999px;font-weight:700;color:#0b0710;font-size:13px}
-    h1{margin:12px 0 8px;font-size:48px;line-height:1.02;text-shadow:0 6px 28px rgba(0,0,0,0.6)}
-    p.lead{color:var(--muted);font-size:16px;margin:0 0 20px}
-    .actions{display:flex;gap:12px}
-    .watch{background:transparent;border:1px solid var(--glass-border);padding:10px 14px;border-radius:12px;color:var(--accent-2);backdrop-filter: blur(6px);cursor:pointer}
-
-    /* poster card */
-    .poster{width:320px;border-radius:16px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.6);border:1px solid rgba(255,255,255,0.04);background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent)}
-    .poster img{display:block;width:100%;height:480px;object-fit:cover}
-    .poster .meta{padding:14px}
-    .meta small{display:block;color:var(--muted);font-size:13px}
-
-    /* Sections */
-    section{padding:72px 0}
-    .container{max-width:var(--max-width);margin:0 auto;padding:0 20px}
-    .grid{display:grid;grid-template-columns:1fr 380px;gap:32px;align-items:start}
-
-    .synopsis{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:28px;border-radius:14px;border:1px solid var(--glass-border)}
-    .credits{font-size:14px;color:var(--muted);line-height:1.6}
-
-    /* Gallery */
-    .gallery{display:flex;gap:12px;overflow-x:auto;padding:12px 4px}
-    .gallery .item{min-width:220px;height:140px;border-radius:12px;overflow:hidden;flex:0 0 auto;border:1px solid rgba(255,255,255,0.04)}
-    .gallery img{width:100%;height:100%;object-fit:cover;display:block}
-
-    /* Footer */
-    footer{padding:36px 20px;border-top:1px solid rgba(255,255,255,0.03);color:var(--muted)}
-
-    /* Modal trailer */
-    .modal{position:fixed;inset:0;background:rgba(3,3,4,0.7);display:flex;align-items:center;justify-content:center;z-index:60;opacity:0;pointer-events:none;transition:all .28s}
-    .modal.active{opacity:1;pointer-events:all}
-    .modal .box{width:min(1100px,95%);aspect-ratio:16/9;background:#000;border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,0.04)}
-    .modal .close{position:absolute;right:8px;top:8px;background:transparent;border:0;color:#fff;padding:8px;font-size:18px;cursor:pointer}
-
-    /* responsive */
-    @media (max-width:940px){
-      .grid{grid-template-columns:1fr}
-      .hero{height:68vh;min-height:480px}
-      h1{font-size:36px}
-      .poster{width:240px}
-    }
-    @media (max-width:560px){
-      nav .nav-links{display:none}
-      .hero-inner{flex-direction:column;align-items:flex-start}
-      .poster img{height:360px}
-      .wrap{padding:16px}
-    }
-
-    /* small polish */
-    .glow{box-shadow:var(--neon);}
-    a{text-decoration:none;color:inherit}
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Demon Style — Movie Landing (Fanpage)</title>
+<style>
+:root{
+  --bg:#07060a; --glass: rgba(255,255,255,0.04);
+  --accent:#ff3b65; --accent-2:#ffb86b;
+  --neon: 0 0 18px rgba(255,59,101,.18), 0 0 60px rgba(255,59,101,.06);
+  --max-width:1100px; --muted:rgba(255,255,255,0.6);
+  --glass-border: rgba(255,255,255,0.06);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background: radial-gradient(ellipse at 10% 10%, rgba(255,59,101,0.04), transparent 10%),
+              linear-gradient(180deg,#08060b 0%, #05040a 100%);
+  color:#fff;overflow-x:hidden;
+}
+/* Layout wrapper */
+.wrap{max-width:var(--max-width);margin:0 auto;padding:28px 20px}
+nav{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.logo{display:flex;gap:12px;align-items:center}
+.logo .brand{font-weight:700;letter-spacing:0.6px}
+.nav-links{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.btn{
+  background:linear-gradient(90deg,var(--accent),var(--accent-2));
+  padding:10px 16px;border-radius:12px;border:none;color:#fff;
+  font-weight:600;box-shadow:var(--neon);cursor:pointer
+}
+/* HERO */
+.hero{
+  position:relative;min-height:520px;display:flex;align-items:center
+}
+.hero::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(7,6,10,0.25),rgba(7,6,10,0.6))
+}
+.hero-media{position:absolute;inset:0;overflow:hidden;z-index:0}
+.hero-media video, .hero-media img{
+  width:100%;height:100%;object-fit:cover;
+}
+.hero-inner{
+  position:relative;z-index:3;display:flex;gap:40px;align-items:center;
+  padding:40px;flex-wrap:wrap
+}
+.copy{max-width:620px}
+.kicker{
+  display:inline-block;background:linear-gradient(90deg,#ff6a95,#ffb86b);
+  padding:6px 12px;border-radius:999px;font-weight:700;color:#0b0710;font-size:13px
+}
+h1{margin:12px 0 8px;font-size:48px;line-height:1.1}
+p.lead{color:var(--muted);font-size:16px;margin-bottom:20px}
+.actions{display:flex;gap:12px;flex-wrap:wrap}
+.watch{
+  background:transparent;border:1px solid var(--glass-border);
+  padding:10px 14px;border-radius:12px;color:var(--accent-2);
+  backdrop-filter: blur(6px);cursor:pointer
+}
+/* Poster card */
+.poster{
+  width:320px;border-radius:16px;overflow:hidden;
+  box-shadow:0 20px 60px rgba(0,0,0,0.6);
+  border:1px solid rgba(255,255,255,0.04);
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent)
+}
+.poster img{width:100%;height:auto;display:block}
+/* Sections */
+section{padding:72px 0}
+.container{max-width:var(--max-width);margin:0 auto;padding:0 20px}
+.grid{display:grid;grid-template-columns:1fr 380px;gap:32px;align-items:start}
+.synopsis{
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  padding:28px;border-radius:14px;border:1px solid var(--glass-border)
+}
+.credits{font-size:14px;color:var(--muted);line-height:1.6}
+/* Gallery */
+.gallery{display:flex;gap:12px;overflow-x:auto;padding:12px 4px}
+.gallery .item{
+  min-width:220px;height:140px;border-radius:12px;overflow:hidden;
+  border:1px solid rgba(255,255,255,0.04)
+}
+.gallery img{width:100%;height:100%;object-fit:cover}
+/* Footer */
+footer{
+  padding:36px 20px;border-top:1px solid rgba(255,255,255,0.03);
+  color:var(--muted)
+}
+/* Modal trailer */
+.modal{
+  position:fixed;inset:0;background:rgba(3,3,4,0.7);
+  display:flex;align-items:center;justify-content:center;
+  z-index:60;opacity:0;pointer-events:none;transition:all .28s
+}
+.modal.active{opacity:1;pointer-events:all}
+.modal .box{
+  width:min(1100px,95%);aspect-ratio:16/9;background:#000;
+  border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,0.04)
+}
+.modal .close{
+  position:absolute;right:8px;top:8px;background:transparent;
+  border:0;color:#fff;padding:8px;font-size:18px;cursor:pointer
+}
+/* Responsive */
+@media (max-width:940px){
+  .grid{grid-template-columns:1fr}
+  h1{font-size:36px}
+  .poster{width:100%;max-width:300px}
+}
+@media (max-width:560px){
+  nav .nav-links{display:none}
+  .hero-inner{flex-direction:column;align-items:flex-start;padding:20px}
+}
+</style>
 </head>
 <body>
-  <div class="wrap">
-    <nav>
-      <div class="logo">
-        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden>
-          <circle cx="12" cy="12" r="10" fill="#1a0b12" stroke="url(#g)" stroke-width="1.2"/>
-          <defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#ff6a95"/><stop offset="1" stop-color="#ffb86b"/></linearGradient></defs>
-        </svg>
-        <div>
-          <div class="brand">Demon Style</div>
-          <small style="color:var(--muted);">Theatrical Fan Landing</small>
-        </div>
+
+<div class="wrap">
+  <nav>
+    <div class="logo">
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#1a0b12" stroke="url(#g)" stroke-width="1.2"/><defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#ff6a95"/><stop offset="1" stop-color="#ffb86b"/></linearGradient></defs></svg>
+      <div>
+        <div class="brand">Demon Style</div>
+        <small style="color:var(--muted);">Theatrical Fan Landing</small>
       </div>
-      <div class="nav-links">
-        <a href="#synopsis">Synopsis</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#credits">Credits</a>
-        <button class="btn" id="openTrailer">Watch Trailer</button>
-      </div>
-    </nav>
+    </div>
+    <div class="nav-links">
+      <a href="#synopsis">Synopsis</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#credits">Credits</a>
+      <button class="btn" id="openTrailer">Watch Trailer</button>
+    </div>
+  </nav>
+</div>
+
+<header class="hero">
+  <div class="hero-media">
+    <video autoplay muted loop playsinline>
+      <source src="/assets/bgoverlay.mp4" type="video/mp4">
+    </video>
   </div>
-
-  <header class="hero">
-    <div class="hero-media" aria-hidden>
-      <!-- Replace the <video> src with your hero background.mp4 or use an image. Keep cross-origin-safe assets. -->
-      <video autoplay muted loop playsinline>
-        <source src="/assets/bgoverlay.mp4" type="video/mp4">
-      </video>
+  <div class="wrap hero-inner">
+    <div class="copy">
+      <span class="kicker">NOW IN THEATERS</span>
+      <h1>Demon Style — A Visual Spectacle</h1>
+      <p class="lead">An original fan-style landing page demonstrating a cinematic hero, trailer modal, glass UI, and gallery.</p>
+      <div class="actions">
+        <button class="btn" id="buyTickets">Buy Tickets</button>
+        <button class="watch" id="openTrailer2">▶ Watch Trailer</button>
+      </div>
+      <div class="credits" style="margin-top:10px">Directed by <strong>G. Developer</strong> • Runtime: <strong>1h 45m</strong> • Genre: <strong>Action / Fantasy</strong></div>
     </div>
-
-    <div class="wrap hero-inner">
-      <div class="copy">
-        <span class="kicker">NOW IN THEATERS</span>
-        <h1>Demon Style — A Visual Spectacle</h1>
-        <p class="lead">An original fan-style landing page demonstrating a cinematic hero, trailer modal, glass UI, and gallery. Swap in your assets (poster, trailer, screenshots) to create a show-stopping single-page microsite.</p>
-        <div class="actions">
-          <button class="btn" id="buyTickets">Buy Tickets</button>
-          <button class="watch" id="openTrailer2">▶ Watch Trailer</button>
-        </div>
-        <div style="height:10px"></div>
-        <div class="credits">Directed by <strong>G. Developer</strong> • Runtime: <strong>1h 45m</strong> • Genre: <strong>Action / Fantasy</strong></div>
-      </div>
-
-      <aside class="poster">
-        <img src="/assets/demon-slayer-infinity-castle.jpg" alt="Poster placeholder">
-        <div class="meta">
-          <small>Official Poster</small>
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px">
-            <div style="font-weight:700">Limited Edition</div>
-            <div style="font-size:13px;color:var(--muted)">2025</div>
-          </div>
-        </div>
-      </aside>
-    </div>
-  </header>
-
-  <main>
-    <section id="synopsis">
-      <div class="container grid">
-        <div class="synopsis">
-          <h2>Synopsis</h2>
-          <p style="color:var(--muted);">In a world where shadow-creatures threaten the last human city, a young warrior must master a forgotten flame technique to save everything she loves. Blending breathtaking visuals with emotional storytelling, this cinematic experience follows her journey from uncertainty to legend.</p>
-
-          <h3 style="margin-top:16px">Why watch</h3>
-          <ul style="color:var(--muted);">
-            <li>Stunning animated sequences and dynamic camera work</li>
-            <li>Original score and immersive sound design</li>
-            <li>Epic set pieces built for the big screen</li>
-          </ul>
-        </div>
-
-        <div>
-          <div style="background:var(--glass);padding:18px;border-radius:12px;border:1px solid var(--glass-border);backdrop-filter:blur(8px)">
-            <h4 style="margin:0 0 8px">Showtimes & Tickets</h4>
-            <p style="margin:0;color:var(--muted)">Select your city and date to view available showtimes.</p>
-            <div style="margin-top:12px;display:flex;gap:8px">
-              <select style="flex:1;padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:#fff">
-                <option>Jakarta</option>
-                <option>Surabaya</option>
-                <option>Bandung</option>
-              </select>
-              <button class="btn">Find</button>
-            </div>
-            <div style="margin-top:12px;color:var(--muted);font-size:13px">Or RSVP for the premiere.</div>
-          </div>
-
-          <div style="height:18px"></div>
-          <div style="padding:14px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border:1px solid var(--glass-border)">
-            <h4 style="margin:0 0 6px">Quick Facts</h4>
-            <div class="credits">
-              <div>Rating: <strong>PG-13</strong></div>
-              <div>Language: <strong>Japanese (Sub)</strong></div>
-              <div>Distributor: <strong>Fan Studio</strong></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="gallery">
-      <div class="wrap">
-        <h2>Gallery</h2>
-        <div class="gallery" aria-label="gallery">
-          <!-- Replace these image sources with your own screenshots -->
-          <div class="item"><img src="https://images.unsplash.com/photo-1526318472351-c75fcf07097a?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="screenshot 1"></div>
-          <div class="item"><img src="https://images.unsplash.com/photo-1511509210479-1a9a5c3b9e7a?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="screenshot 2"></div>
-          <div class="item"><img src="https://images.unsplash.com/photo-1511765224389-37f0e77cf0eb?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="screenshot 3"></div>
-          <div class="item"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="screenshot 4"></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="credits">
-      <div class="wrap">
-        <h2>Credits</h2>
-        <p class="credits">Produced by <strong>Fan Studio</strong> • Visual Effects by <strong>Studio X</strong> • Music by <strong>Composer Y</strong></p>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
-      <div style="color:var(--muted)">© 2025 Fan Landing — All artwork and assets are placeholders for demo only.</div>
-      <div style="display:flex;gap:10px;align-items:center">
-        <a href="#" style="color:var(--muted)">Privacy</a>
-        <a href="#" style="color:var(--muted)">Terms</a>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Trailer Modal -->
-  <div class="modal" id="modal">
-    <button class="close" id="closeModal">✕</button>
-    <div class="box" role="dialog" aria-modal="true">
-      <!-- Replace the iframe src with your trailer YouTube embed or self-hosted video -->
-      <iframe id="trailerFrame" width="100%" height="100%" src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0&showinfo=0" title="Trailer" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
+    <aside class="poster">
+      <img src="/assets/demon-slayer-infinity-castle.jpg" alt="Poster placeholder">
+    </aside>
   </div>
+</header>
 
-  <script>
-    // Basic interactivity: open/close trailer modal
-    const modal = document.getElementById('modal');
-    const open = document.getElementById('openTrailer');
-    const open2 = document.getElementById('openTrailer2');
-    const close = document.getElementById('closeModal');
-    const frame = document.getElementById('trailerFrame');
-    const buy = document.getElementById('buyTickets');
-
-    function openModal(){ modal.classList.add('active'); }
-    function closeModal(){ modal.classList.remove('active'); frame.src = frame.src; /* stop video */ }
-
-    open?.addEventListener('click', openModal);
-    open2?.addEventListener('click', openModal);
-    close?.addEventListener('click', closeModal);
-    modal?.addEventListener('click', e=>{ if(e.target===modal) closeModal(); })
-
-    buy?.addEventListener('click', ()=>{ alert('Demo: replace with real ticket flow'); })
-
-    // Small: lazy load poster/gallery images for perf
-    document.addEventListener('DOMContentLoaded', ()=>{
-      document.querySelectorAll('.gallery img, .poster img').forEach(img=>{
-        if(img.dataset.src){ img.src = img.dataset.src }
-      })
-    })
-  </script>
+<!-- Sections, gallery, footer sama seperti versi kamu -->
+<!-- ... -->
+<script>
+const modal=document.getElementById('modal'),
+      open1=document.getElementById('openTrailer'),
+      open2=document.getElementById('openTrailer2'),
+      close=document.getElementById('closeModal'),
+      frame=document.getElementById('trailerFrame');
+function openModal(){modal.classList.add('active')}
+function closeModal(){modal.classList.remove('active');frame.src=frame.src}
+open1?.addEventListener('click',openModal);
+open2?.addEventListener('click',openModal);
+close?.addEventListener('click',closeModal);
+modal?.addEventListener('click',e=>{if(e.target===modal)closeModal()});
+</script>
 </body>
 </html>
