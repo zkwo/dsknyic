@@ -5,16 +5,15 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Watch Demon Slayer - Kimetsu no Yaiba Infinity Castle</title>
 <style>
-/* Basic Reset and Global Styles */
 *{margin:0;padding:0;box-sizing:border-box}
 body,html{height:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#000;color:#fff;overflow-x:hidden}
+
 .hero{position:relative;height:100vh;width:100%;overflow:hidden}
-.hero video{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:1}
+.hero video{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:1;background:#000}
 .hero-overlay{position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:20px;z-index:2;background:rgba(0,0,0,0.35);animation:fadeIn 1.5s ease-in-out forwards}
 .hero-logo img{max-width:220px;width:80%;margin-bottom:25px;animation:fadeUp 1s ease-in-out forwards}
 .hero-buttons{display:flex;flex-direction:column;gap:14px;width:100%;max-width:240px;animation:fadeUp 1.3s ease-in-out forwards}
 
-/* Mengubah styling untuk elemen <a> */
 .hero-buttons a, .hero-buttons button{
   padding:14px;
   border:none;
@@ -24,28 +23,22 @@ body,html{height:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Ro
   cursor:pointer;
   letter-spacing:1px;
   transition:transform 0.2s, box-shadow 0.3s, background 0.3s, color 0.3s;
-  text-decoration: none; /* Menghapus garis bawah pada tautan */
-  display: block; /* Agar tautan mengambil lebar penuh seperti tombol */
+  text-decoration: none;
+  display: block;
   text-align: center;
-  user-select: none; /* Mencegah pemilihan teks dan interaksi long-press */
-  -webkit-user-select: none; /* Dukungan untuk Safari */
+  user-select: none;
+  -webkit-user-select: none;
 }
 .hero-buttons a:active, .hero-buttons button:active{transform:scale(0.96)}
-
-/* Style untuk tombol "WATCH TRAILER" */
 .btn-primary{background:#ff3b65;color:#fff}
-
-/* Style baru untuk tombol "ORDER NOW" dengan glassmorphism */
 .btn-glass{
-  background: rgba(255, 255, 255, 0.1); /* Transparan */
+  background: rgba(255, 255, 255, 0.1);
   color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.3); /* Border yang lebih lembut */
-  backdrop-filter: blur(10px); /* Efek blur untuk glassmorphism */
-  -webkit-backdrop-filter: blur(10px); /* Dukungan untuk Safari */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow lembut */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-
-/* Animasi interaksi untuk tombol glassmorphism */
 .btn-glass:hover{
   background: rgba(255, 255, 255, 0.2);
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
@@ -62,23 +55,26 @@ section img{max-width:100%;border-radius:8px;margin-top:20px}
 .trailer-modal.active{display:flex;animation:fadeIn 0.3s ease-in-out forwards}
 .trailer-close{position:absolute;top:20px;right:20px;font-size:24px;cursor:pointer;color:#fff}
 footer{padding:20px;text-align:center;font-size:14px;color:#aaa;background:#000}
+
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 @keyframes fadeSection{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
 </style>
 </head>
 <body>
+
 <div class="hero">
   <video autoplay loop muted playsinline>
-    <source src="/assets/demon-slayer-infinity-castle.mp4" type="video/mp4">
-    Your browser does not support the video tag.
+    <!-- Ganti link ini ke file video kamu sendiri -->
+    <source src="https://cdn.coverr.co/videos/coverr-sunset-over-the-horizon-1080p.mp4" type="video/mp4">
+    Browser kamu tidak mendukung video.
   </video>
   <div class="hero-overlay">
     <div class="hero-logo">
       <img src="/assets/logo.png" alt="Logo">
     </div>
     <div class="hero-buttons">
-      <a href="https://youtu.be/mufPWqFMpmU?si=Bc-CI348dhbAeyWw " class="btn-primary" id="watchTrailer">WATCH TRAILER</a>
+      <a href="https://youtu.be/mufPWqFMpmU?si=Bc-CI348dhbAeyWw" class="btn-primary">WATCH TRAILER</a>
       <a href="https://wa.me/6287714745440" class="btn-glass">ORDER NOW</a>
     </div>
   </div>
@@ -95,5 +91,10 @@ As the Demon Slayer Corps members and Hashira engaged in a group strength traini
 The destination of where Tanjiro and Demon Slayer Corps have fallen is the demons’ stronghold – the Infinity Castle. And so, the battleground is set as the final battle between the Demon Slayer Corps and the demons ignites.</p>
   <img src="/assets/demon-slayer-infinity-castle.jpg" alt="Poster">
 </section>
+
+<footer>
+  © 2025 Demon Slayer - Kimetsu no Yaiba. All Rights Reserved.
+</footer>
+
 </body>
 </html>
