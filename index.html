@@ -13,8 +13,24 @@ body,html{height:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Ro
 .hero-overlay{position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:20px;z-index:2;background:rgba(0,0,0,0.35);animation:fadeIn 1.5s ease-in-out forwards}
 .hero-logo img{max-width:220px;width:80%;margin-bottom:25px;animation:fadeUp 1s ease-in-out forwards}
 .hero-buttons{display:flex;flex-direction:column;gap:14px;width:100%;max-width:240px;animation:fadeUp 1.3s ease-in-out forwards}
-.hero-buttons button{padding:14px;border:none;border-radius:8px;font-size:16px;font-weight:bold;cursor:pointer;letter-spacing:1px;transition:transform 0.2s, box-shadow 0.3s, background 0.3s, color 0.3s}
-.hero-buttons button:active{transform:scale(0.96)}
+
+/* Mengubah styling untuk elemen <a> */
+.hero-buttons a, .hero-buttons button{
+  padding:14px;
+  border:none;
+  border-radius:8px;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
+  letter-spacing:1px;
+  transition:transform 0.2s, box-shadow 0.3s, background 0.3s, color 0.3s;
+  text-decoration: none; /* Menghapus garis bawah pada tautan */
+  display: block; /* Agar tautan mengambil lebar penuh seperti tombol */
+  text-align: center;
+  user-select: none; /* Mencegah pemilihan teks dan interaksi long-press */
+  -webkit-user-select: none; /* Dukungan untuk Safari */
+}
+.hero-buttons a:active, .hero-buttons button:active{transform:scale(0.96)}
 
 /* Style untuk tombol "WATCH TRAILER" */
 .btn-primary{background:#ff3b65;color:#fff}
@@ -62,8 +78,8 @@ footer{padding:20px;text-align:center;font-size:14px;color:#aaa;background:#000}
       <img src="/assets/logo.png" alt="Logo">
     </div>
     <div class="hero-buttons">
-      <button class="btn-primary" id="watchTrailer">WATCH TRAILER</button>
-      <button class="btn-glass">ORDER NOW</button>
+      <a href="https://youtu.be/mufPWqFMpmU?si=Bc-CI348dhbAeyWw " class="btn-primary" id="watchTrailer">WATCH TRAILER</a>
+      <a href="https://wa.me/6287714745440" class="btn-glass">ORDER NOW</a>
     </div>
   </div>
 </div>
