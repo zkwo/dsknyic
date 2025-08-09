@@ -3,176 +3,272 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Demon Style — Movie Landing (Fanpage)</title>
+<title>Download — Demon Slayer Kimetsu No Yaiba Infinity Castle (2025)</title>
 <style>
-:root{
-  --bg:#07060a; --glass: rgba(255,255,255,0.04);
-  --accent:#ff3b65; --accent-2:#ffb86b;
-  --neon: 0 0 18px rgba(255,59,101,.18), 0 0 60px rgba(255,59,101,.06);
-  --max-width:1100px; --muted:rgba(255,255,255,0.6);
-  --glass-border: rgba(255,255,255,0.06);
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html,body{height:100%}
-body{
-  font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-  background: radial-gradient(ellipse at 10% 10%, rgba(255,59,101,0.04), transparent 10%),
-              linear-gradient(180deg,#08060b 0%, #05040a 100%);
-  color:#fff;overflow-x:hidden;
-}
-/* Layout wrapper */
-.wrap{max-width:var(--max-width);margin:0 auto;padding:28px 20px}
-nav{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
-.logo{display:flex;gap:12px;align-items:center}
-.logo .brand{font-weight:700;letter-spacing:0.6px}
-.nav-links{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
-.btn{
-  background:linear-gradient(90deg,var(--accent),var(--accent-2));
-  padding:10px 16px;border-radius:12px;border:none;color:#fff;
-  font-weight:600;box-shadow:var(--neon);cursor:pointer
-}
-/* HERO */
-.hero{
-  position:relative;min-height:520px;display:flex;align-items:center
-}
-.hero::after{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(180deg,rgba(7,6,10,0.25),rgba(7,6,10,0.6))
-}
-.hero-media{position:absolute;inset:0;overflow:hidden;z-index:0}
-.hero-media video, .hero-media img{
-  width:100%;height:100%;object-fit:cover;
-}
-.hero-inner{
-  position:relative;z-index:3;display:flex;gap:40px;align-items:center;
-  padding:40px;flex-wrap:wrap
-}
-.copy{max-width:620px}
-.kicker{
-  display:inline-block;background:linear-gradient(90deg,#ff6a95,#ffb86b);
-  padding:6px 12px;border-radius:999px;font-weight:700;color:#0b0710;font-size:13px
-}
-h1{margin:12px 0 8px;font-size:48px;line-height:1.1}
-p.lead{color:var(--muted);font-size:16px;margin-bottom:20px}
-.actions{display:flex;gap:12px;flex-wrap:wrap}
-.watch{
-  background:transparent;border:1px solid var(--glass-border);
-  padding:10px 14px;border-radius:12px;color:var(--accent-2);
-  backdrop-filter: blur(6px);cursor:pointer
-}
-/* Poster card */
-.poster{
-  width:320px;border-radius:16px;overflow:hidden;
-  box-shadow:0 20px 60px rgba(0,0,0,0.6);
-  border:1px solid rgba(255,255,255,0.04);
-  background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent)
-}
-.poster img{width:100%;height:auto;display:block}
-/* Sections */
-section{padding:72px 0}
-.container{max-width:var(--max-width);margin:0 auto;padding:0 20px}
-.grid{display:grid;grid-template-columns:1fr 380px;gap:32px;align-items:start}
-.synopsis{
-  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-  padding:28px;border-radius:14px;border:1px solid var(--glass-border)
-}
-.credits{font-size:14px;color:var(--muted);line-height:1.6}
-/* Gallery */
-.gallery{display:flex;gap:12px;overflow-x:auto;padding:12px 4px}
-.gallery .item{
-  min-width:220px;height:140px;border-radius:12px;overflow:hidden;
-  border:1px solid rgba(255,255,255,0.04)
-}
-.gallery img{width:100%;height:100%;object-fit:cover}
-/* Footer */
-footer{
-  padding:36px 20px;border-top:1px solid rgba(255,255,255,0.03);
-  color:var(--muted)
-}
-/* Modal trailer */
-.modal{
-  position:fixed;inset:0;background:rgba(3,3,4,0.7);
-  display:flex;align-items:center;justify-content:center;
-  z-index:60;opacity:0;pointer-events:none;transition:all .28s
-}
-.modal.active{opacity:1;pointer-events:all}
-.modal .box{
-  width:min(1100px,95%);aspect-ratio:16/9;background:#000;
-  border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,0.04)
-}
-.modal .close{
-  position:absolute;right:8px;top:8px;background:transparent;
-  border:0;color:#fff;padding:8px;font-size:18px;cursor:pointer
-}
-/* Responsive */
-@media (max-width:940px){
-  .grid{grid-template-columns:1fr}
-  h1{font-size:36px}
-  .poster{width:100%;max-width:300px}
-}
-@media (max-width:560px){
-  nav .nav-links{display:none}
-  .hero-inner{flex-direction:column;align-items:flex-start;padding:20px}
-}
+  :root{
+    --bg:#0e0e0e;
+    --card:#111;
+    --muted:#9aa4b2;
+    --accent:#2dd4bf;
+  }
+  *{box-sizing:border-box;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:#e6eef6;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    position:relative;
+    overflow-x:hidden;
+  }
+  .wrap{width:100%;max-width:980px;z-index:2;}
+
+  header{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+  .logo{
+    width:48px;height:48px;border-radius:10px;
+    background:linear-gradient(135deg,#0ea5a4,#06b6d4);
+    display:flex;align-items:center;justify-content:center;
+    font-weight:700;color:#02111a;
+    box-shadow: inset -4px -4px 8px rgba(255,255,255,0.04),
+                inset 4px 4px 8px rgba(0,0,0,0.6);
+  }
+  h1{font-size:18px;margin:0}
+  .sub{color:var(--muted);font-size:13px;margin-top:4px}
+
+  .grid{display:grid;grid-template-columns:1fr 360px;gap:18px;}
+  @media (max-width:840px){ .grid{grid-template-columns:1fr;} .right {order:2} }
+
+  /* Neumorphism card */
+  .card{
+    background:var(--card);
+    padding:18px;
+    border-radius:20px;
+    box-shadow:
+      -8px -8px 16px rgba(255,255,255,0.03),
+       8px  8px 16px rgba(0,0,0,0.8);
+  }
+
+  .video-wrap{
+    border-radius:15px;
+    overflow:hidden;
+    background:#000;
+    position:relative;
+    min-height:220px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:
+      -6px -6px 12px rgba(255,255,255,0.02),
+       6px  6px 12px rgba(0,0,0,0.8);
+  }
+  video{width:100%;height:auto;display:block}
+
+  .meta{margin-top:12px;display:flex;align-items:center;justify-content:space-between;gap:8px}
+  .meta .title{font-weight:600}
+  .size{color:var(--muted);font-size:13px}
+
+  .options{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+  .opt-btn{
+    padding:10px 12px;
+    border-radius:12px;
+    background:var(--card);
+    border:none;
+    color:#fff;
+    cursor:pointer;
+    font-weight:600;
+    font-size:14px;
+    box-shadow:
+      -4px -4px 8px rgba(255,255,255,0.03),
+       4px  4px 8px rgba(0,0,0,0.8);
+    transition: all 0.2s ease;
+  }
+  .opt-btn.active{
+    background:var(--accent);
+    color:#02111a;
+    box-shadow:
+      inset -4px -4px 8px rgba(255,255,255,0.1),
+      inset 4px 4px 8px rgba(0,0,0,0.4);
+  }
+
+  .right .download-big{display:flex;flex-direction:column;gap:10px;align-items:stretch}
+
+  .big-btn{
+    padding:14px;
+    border-radius:14px;
+    background:var(--accent);
+    color:#02111a;
+    text-align:center;
+    font-weight:800;
+    cursor:pointer;
+    border:none;
+    box-shadow:
+      -4px -4px 8px rgba(255,255,255,0.1),
+       4px  4px 8px rgba(0,0,0,0.4);
+  }
+  .secondary{
+    background:var(--card);
+    border:none;
+    color:var(--muted);
+    padding:10px;
+    border-radius:12px;
+    text-align:center;
+    box-shadow:
+      -3px -3px 6px rgba(255,255,255,0.03),
+       3px  3px 6px rgba(0,0,0,0.8);
+    cursor:pointer;
+  }
+  .footer-note{font-size:12px;color:var(--muted);margin-top:10px;text-align:center}
+
+  .quality-list{display:flex;flex-direction:column;gap:8px}
+  .quality-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:10px;
+    border-radius:12px;
+    background:var(--card);
+    box-shadow:
+      -3px -3px 6px rgba(255,255,255,0.03),
+       3px  3px 6px rgba(0,0,0,0.8);
+  }
+
+  /* Ripple effect */
+  .ripple {
+    position: absolute;
+    border-radius: 50%;
+    transform: scale(0);
+    animation: ripple-animation 0.6s linear;
+    background: rgba(45, 212, 191, 0.4);
+    pointer-events: none;
+    z-index: 1;
+  }
+  @keyframes ripple-animation {
+    to {
+      transform: scale(4);
+      opacity: 0;
+    }
+  }
 </style>
 </head>
 <body>
-
 <div class="wrap">
-  <nav>
-    <div class="logo">
-      <svg width="36" height="36" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#1a0b12" stroke="url(#g)" stroke-width="1.2"/><defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#ff6a95"/><stop offset="1" stop-color="#ffb86b"/></linearGradient></defs></svg>
-      <div>
-        <div class="brand">Demon Style</div>
-        <small style="color:var(--muted);">Theatrical Fan Landing</small>
-      </div>
+  <header>
+    <div class="logo">DS</div>
+    <div>
+      <h1>Demon Slayer — Kimetsu no Yaiba Infinity Castle (2025).mp4</h1>
+      <div class="sub">Normal quality 852x480 · 688.5 MB</div>
     </div>
-    <div class="nav-links">
-      <a href="#synopsis">Synopsis</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#credits">Credits</a>
-      <button class="btn" id="openTrailer">Watch Trailer</button>
-    </div>
-  </nav>
-</div>
+  </header>
 
-<header class="hero">
-  <div class="hero-media">
-    <video autoplay muted loop playsinline>
-      <source src="/assets/bgoverlay.mp4" type="video/mp4">
-    </video>
-  </div>
-  <div class="wrap hero-inner">
-    <div class="copy">
-      <span class="kicker">NOW IN THEATERS</span>
-      <h1>Demon Style — A Visual Spectacle</h1>
-      <p class="lead">An original fan-style landing page demonstrating a cinematic hero, trailer modal, glass UI, and gallery.</p>
-      <div class="actions">
-        <button class="btn" id="buyTickets">Buy Tickets</button>
-        <button class="watch" id="openTrailer2">▶ Watch Trailer</button>
+  <div class="grid">
+    <main class="card">
+      <div class="video-wrap">
+        <video id="preview" poster="https://youtu.be/mufPWqFMpmU?si=mB92wPksGvIcH30c" controls preload="metadata">
+          <source src="https://youtu.be/mufPWqFMpmU?si=mB92wPksGvIcH30c" type="video/mp4" />
+          Browser anda tidak mendukung tag video.
+        </video>
       </div>
-      <div class="credits" style="margin-top:10px">Directed by <strong>G. Developer</strong> • Runtime: <strong>1h 45m</strong> • Genre: <strong>Action / Fantasy</strong></div>
-    </div>
-    <aside class="poster">
-      <img src="/assets/demon-slayer-infinity-castle.jpg" alt="Poster placeholder">
+<!--
+      <div class="meta">
+        <div class="title">Demon Slayer - Kimetsu no Yaiba Infinity Castle (2025).mp4</div>
+        <div class="size">688.5 MB</div>
+      </div>
+-->
+      <div class="options" style="margin-top:14px">
+        <button class="opt-btn active" data-q="852x480">Normal 852×480</button>
+   <!--     
+        <button class="opt-btn" data-q="1280x720">HD 1280×720</button>
+        <button class="opt-btn" data-q="1920x1080">FHD 1920×1080</button>
+      </div>
+
+      <div style="margin-top:14px" class="quality-list">
+        <div class="quality-row">
+          <div>Normal quality — 852×480</div>
+          <div><button class="secondary" data-download="/assets/mp4/sample-852x480.mp4">Download</button></div>
+        </div>
+        <div class="quality-row">
+          <div>HD quality — 1280×720</div>
+          <div><button class="secondary" data-download="/assets/mp4/sample-1280x720.mp4">Download</button></div>
+        </div>
+        <div class="quality-row">
+          <div>FHD quality — 1920×1080</div>
+          <div><button class="secondary" data-download="/assets/mp4/sample-1920x1080.mp4">Download</button></div>
+        </div>
+      </div>
+    </main>
+-->
+    <aside class="card right">
+      <strong>Download File</strong>
+      <div style="color:var(--muted);font-size:13px;margin-top:6px">Demon Slayer- Kimetsu no Yaiba Infinity Castle (2025).mp4</div>
+      <div style="color:var(--muted);font-size:13px;margin-top:6px">688.5 MB</div>
+
+      <div class="download-big" style="margin-top:18px">
+        <button class="big-btn" id="bigDownload" data-url="/assets/mp4/sample-852x480.mp4">Download Now · 852×480 · 688.5 MB</button>
+  <!--      <button class="secondary" id="streamBtn">Stream in browser</button>-->
+      </div>
+
+      <div class="footer-note">Tekan tombol download untuk menyimpan ke perangkat.</div>
     </aside>
   </div>
-</header>
+</div>
 
-<!-- Sections, gallery, footer sama seperti versi kamu -->
-<!-- ... -->
 <script>
-const modal=document.getElementById('modal'),
-      open1=document.getElementById('openTrailer'),
-      open2=document.getElementById('openTrailer2'),
-      close=document.getElementById('closeModal'),
-      frame=document.getElementById('trailerFrame');
-function openModal(){modal.classList.add('active')}
-function closeModal(){modal.classList.remove('active');frame.src=frame.src}
-open1?.addEventListener('click',openModal);
-open2?.addEventListener('click',openModal);
-close?.addEventListener('click',closeModal);
-modal?.addEventListener('click',e=>{if(e.target===modal)closeModal()});
+  const optBtns = document.querySelectorAll('.opt-btn');
+  const bigBtn = document.getElementById('bigDownload');
+  const secondaryBtns = document.querySelectorAll('.secondary[data-download]');
+  optBtns.forEach(b=>{
+    b.addEventListener('click', ()=> {
+      optBtns.forEach(x=>x.classList.remove('active'));
+      b.classList.add('active');
+      const q = b.getAttribute('data-q');
+      bigBtn.textContent = `Download Now · ${q} · 688.5 MB`;
+      if(q === '1280x720') bigBtn.dataset.url = '/assets/mp4/sample-1280x720.mp4';
+      else if(q === '1920x1080') bigBtn.dataset.url = '/assets/mp4/sample-1920x1080.mp4';
+      else bigBtn.dataset.url = '/assets/mp4/sample-852x480.mp4';
+    });
+  });
+
+  secondaryBtns.forEach(btn=>{
+    btn.addEventListener('click', ()=> {
+      const url = btn.dataset.download;
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = '';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+    });
+  });
+
+  bigBtn.addEventListener('click', ()=>{
+    const url = bigBtn.dataset.url || '/assets/mp4/sample-852x480.mp4';
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = '';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+  });
+
+  document.getElementById('streamBtn').addEventListener('click', ()=>{
+    const url = document.querySelector('video source').src;
+    window.open(url, '_blank');
+  });
+
+  // Ripple effect
+  document.addEventListener('click', function(e) {
+    const ripple = document.createElement('span');
+    ripple.classList.add('ripple');
+    document.body.appendChild(ripple);
+    const size = 50;
+    ripple.style.width = ripple.style.height = size + 'px';
+    ripple.style.left = (e.clientX - size/2) + 'px';
+    ripple.style.top = (e.clientY - size/2) + 'px';
+    setTimeout(()=> { ripple.remove(); }, 600);
+  });
 </script>
 </body>
 </html>
