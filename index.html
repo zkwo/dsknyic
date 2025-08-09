@@ -8,7 +8,8 @@
 *{margin:0;padding:0;box-sizing:border-box}
 body,html{height:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#000;color:#fff;overflow-x:hidden}
 .hero{position:relative;height:100vh;width:100%;overflow:hidden}
-.hero pict{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:1}
+/* Ganti .hero pict dengan .hero video */
+.hero video{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:1}
 .hero-overlay{position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:20px;z-index:2;background:rgba(0,0,0,0.35);animation:fadeIn 1.5s ease-in-out forwards}
 .hero-logo img{max-width:220px;width:80%;margin-bottom:25px;animation:fadeUp 1s ease-in-out forwards}
 .hero-buttons{display:flex;flex-direction:column;gap:14px;width:100%;max-width:240px;animation:fadeUp 1.3s ease-in-out forwards}
@@ -30,9 +31,10 @@ footer{padding:20px;text-align:center;font-size:14px;color:#aaa;background:#000}
 </head>
 <body>
 <div class="hero">
-  <div class="pict">
-    <img src="/assets/demon-slayer-infinity-castle.jpg" type="img">
-  </div>
+  <video autoplay loop muted playsinline>
+    <source src="/assets/bgoverlay.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
   <div class="hero-overlay">
     <div class="hero-logo">
       <img src="/assets/logo.png" alt="Logo">
@@ -59,6 +61,8 @@ As the Demon Slayer Corps members and Hashira engaged in a group strength traini
 The destination of where Tanjiro and Demon Slayer Corps have fallen is the demons’ stronghold – the Infinity Castle. And so, the battleground is set as the final battle between the Demon Slayer Corps and the demons ignites.</p>
   <img src="/assets/demon-slayer-infinity-castle.jpg" alt="Poster">
 </section>
+</body>
+</html>
 <!--
 <section>
   <h2>Gallery</h2>
