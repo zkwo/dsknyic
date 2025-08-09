@@ -56,6 +56,7 @@
     font-weight:800;
     cursor:pointer;
     border:none;
+    width:100%;
   }
   .footer-note{font-size:12px;color:var(--muted);margin-top:10px;text-align:center}
 </style>
@@ -90,17 +91,22 @@
         <button class="big-btn" id="bigDownload">Download Now · 852×480 · 688.5 MB</button>
       </div>
 
-      <div class="footer-note">Tekan tombol download untuk membuka MediaFire.</div>
+      <div class="footer-note">File akan langsung terunduh setelah klik tombol di atas.</div>
     </aside>
   </div>
 </div>
 
 <script>
-  // Ganti dengan link MediaFire langsung
-  const mediafireLink = "PASTE_LINK_MEDIAFIRE_DI_SINI";
+  // Ganti dengan link download langsung MediaFire (direct link .mp4)
+  const mediafireDirectLink = "https://www.mediafire.com/file/pdm22dxxtlqaf9o/Demon_Slayer-_Kimetsu_no_Yaiba_Infinity_Castle_(2025).mp4/file";
 
   document.getElementById("bigDownload").addEventListener("click", () => {
-    window.location.href = mediafireLink;
+    const a = document.createElement("a");
+    a.href = mediafireDirectLink;
+    a.download = "";
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
   });
 </script>
 </body>
