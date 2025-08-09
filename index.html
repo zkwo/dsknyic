@@ -5,18 +5,40 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Watch Demon Slayer - Kimetsu no Yaiba Infinity Castle</title>
 <style>
+/* Basic Reset and Global Styles */
 *{margin:0;padding:0;box-sizing:border-box}
 body,html{height:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#000;color:#fff;overflow-x:hidden}
 .hero{position:relative;height:100vh;width:100%;overflow:hidden}
-/* Ganti .hero pict dengan .hero video */
 .hero video{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:1}
 .hero-overlay{position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:20px;z-index:2;background:rgba(0,0,0,0.35);animation:fadeIn 1.5s ease-in-out forwards}
 .hero-logo img{max-width:220px;width:80%;margin-bottom:25px;animation:fadeUp 1s ease-in-out forwards}
 .hero-buttons{display:flex;flex-direction:column;gap:14px;width:100%;max-width:240px;animation:fadeUp 1.3s ease-in-out forwards}
-.hero-buttons button{padding:14px;border:none;border-radius:8px;font-size:16px;font-weight:bold;cursor:pointer;letter-spacing:1px;transition:transform 0.2s}
+.hero-buttons button{padding:14px;border:none;border-radius:8px;font-size:16px;font-weight:bold;cursor:pointer;letter-spacing:1px;transition:transform 0.2s, box-shadow 0.3s, background 0.3s, color 0.3s}
 .hero-buttons button:active{transform:scale(0.96)}
+
+/* Style untuk tombol "WATCH TRAILER" */
 .btn-primary{background:#ff3b65;color:#fff}
-.btn-secondary{background:transparent;color:#fff;border:2px solid #fff}
+
+/* Style baru untuk tombol "ORDER NOW" dengan glassmorphism */
+.btn-glass{
+  background: rgba(255, 255, 255, 0.1); /* Transparan */
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Border yang lebih lembut */
+  backdrop-filter: blur(10px); /* Efek blur untuk glassmorphism */
+  -webkit-backdrop-filter: blur(10px); /* Dukungan untuk Safari */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow lembut */
+}
+
+/* Animasi interaksi untuk tombol glassmorphism */
+.btn-glass:hover{
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+.btn-glass:active{
+  transform: scale(0.96);
+  background: rgba(255, 255, 255, 0.15);
+}
+
 section{padding:50px 20px;text-align:center;animation:fadeSection 1s ease-in-out forwards}
 section img{max-width:100%;border-radius:8px;margin-top:20px}
 .trailer-modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.95);display:none;align-items:center;justify-content:center;z-index:999}
@@ -32,7 +54,7 @@ footer{padding:20px;text-align:center;font-size:14px;color:#aaa;background:#000}
 <body>
 <div class="hero">
   <video autoplay loop muted playsinline>
-    <source src="/assets/bgoverlay.mp4" type="video/mp4">
+    <source src="/assets/demon-slayer-infinity-castle.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
   <div class="hero-overlay">
@@ -41,18 +63,14 @@ footer{padding:20px;text-align:center;font-size:14px;color:#aaa;background:#000}
     </div>
     <div class="hero-buttons">
       <button class="btn-primary" id="watchTrailer">WATCH TRAILER</button>
-      <button class="btn-secondary">ORDER NOW</button>
+      <button class="btn-glass">ORDER NOW</button>
     </div>
   </div>
 </div>
 
 <section>
   <h2>Synopsis</h2>
-  <p>Demon Slayer: Infinity Castle | Synopsis
-Title or logo for Demon Slayer: Infinity Castle
-
-Poster for Demon Slayer: Infinity Castle
-Tanjiro Kamado – a boy who joined an organization dedicated to hunting down demons called the Demon Slayer Corps after his younger sister Nezuko was turned into a demon.
+  <p>Tanjiro Kamado – a boy who joined an organization dedicated to hunting down demons called the Demon Slayer Corps after his younger sister Nezuko was turned into a demon.
 
 While growing stronger and deepening his friendships and bonds with fellow corps members, Tanjiro has battled many demons with his comrades, Zenitsu Agatsuma and Inosuke Hashibira. Along the way, his journey has led him to fight alongside the Demon Slayer Corps’ highest-ranking swordsmen, the Hashira, including Flame Hashira Kyojuro Rengoku aboard the Mugen Train, Sound Hashira Tengen Uzui within the Entertainment District, as well as Mist Hashira Muichiro Tokito and Love Hashira Mitsuri Kanroji at the Swordsmith Village.
 
@@ -61,29 +79,5 @@ As the Demon Slayer Corps members and Hashira engaged in a group strength traini
 The destination of where Tanjiro and Demon Slayer Corps have fallen is the demons’ stronghold – the Infinity Castle. And so, the battleground is set as the final battle between the Demon Slayer Corps and the demons ignites.</p>
   <img src="/assets/demon-slayer-infinity-castle.jpg" alt="Poster">
 </section>
-</body>
-</html>
-<!--
-<section>
-  <h2>Gallery</h2>
-  <img src="/assets/bgoverlay.mp4" alt="Gallery Image">
-</section>
--->
-<footer>
-  &copy; 2025 Demon Slayer. All Rights Reserved.
-</footer>
-
-<div class="trailer-modal" id="trailerModal">
-  <div class="trailer-close" id="closeTrailer">✕</div>
-  <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
-</div>
-
-<script>
-const watchBtn=document.getElementById('watchTrailer');
-const trailerModal=document.getElementById('trailerModal');
-const closeBtn=document.getElementById('closeTrailer');
-watchBtn.addEventListener('click',()=>{trailerModal.classList.add('active');});
-closeBtn.addEventListener('click',()=>{trailerModal.classList.remove('active');});
-</script>
 </body>
 </html>
