@@ -1,123 +1,236 @@
-<!doctype html>
-<html lang="id">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Watch Demon Slayer - Kimetsu no Yaiba Infinity Castle</title>
-<style>
-/* Basic Reset and Global Styles */
-*{margin:0;padding:0;box-sizing:border-box}
-body,html{height:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#000;color:#fff;overflow-x:hidden}
-.hero{position:relative;height:100vh;width:100%;overflow:hidden}
-.hero video{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:1}
-.hero-overlay{position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:20px;z-index:2;background:rgba(0,0,0,0.35);animation:fadeIn 1.5s ease-in-out forwards}
-.hero-logo img{max-width:220px;width:80%;margin-bottom:25px;animation:fadeUp 1s ease-in-out forwards}
-.hero-buttons{display:flex;flex-direction:column;gap:14px;width:100%;max-width:240px;animation:fadeUp 1.3s ease-in-out forwards}
-
-/* Tombol di hero-buttons */
-.hero-buttons a, .hero-buttons button{
-  padding:14px;
-  border:none;
-  border-radius:8px;
-  font-size:16px;
-  font-weight:bold;
-  cursor:pointer;
-  letter-spacing:1px;
-  transition:transform 0.2s, box-shadow 0.3s, background 0.3s, color 0.3s;
-  text-decoration: none;
-  display: block;
-  text-align: center;
-  user-select: none;
-  -webkit-user-select: none;
-}
-.hero-buttons a:active, .hero-buttons button:active{transform:scale(0.96)}
-.btn-primary{background:#ff3b65;color:#fff}
-.btn-glass{
-  background: rgba(255, 255, 255, 0.1);
-  color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-.btn-glass:hover{
-  background: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
-}
-.btn-glass:active{
-  transform: scale(0.96);
-  background: rgba(255, 255, 255, 0.15);
-}
-
-/* Tombol Get Tickets di tengah atas */
-.btn-get-tickets {
-  position: absolute;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
-  padding: 12px 28px;
-  font-size: 16px;
-  font-weight: bold;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 40px;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  cursor: pointer;
-  transition: background 0.3s, transform 0.2s;
-  text-decoration: none;
-  z-index: 3;
-}
-.btn-get-tickets:hover {
-  background: rgba(255, 255, 255, 0.2);
-  transform: translateX(-50%) scale(1.05);
-}
-
-section{padding:50px 20px;text-align:center;animation:fadeSection 1s ease-in-out forwards}
-section img{max-width:100%;border-radius:8px;margin-top:20px}
-.trailer-modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.95);display:none;align-items:center;justify-content:center;z-index:999}
-.trailer-modal iframe{width:90%;height:50%;border:none;border-radius:8px}
-.trailer-modal.active{display:flex;animation:fadeIn 0.3s ease-in-out forwards}
-.trailer-close{position:absolute;top:20px;right:20px;font-size:24px;cursor:pointer;color:#fff}
-footer{padding:20px;text-align:center;font-size:14px;color:#aaa;background:#000}
-@keyframes fadeIn{from{opacity:0}to{opacity:1}}
-@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-@keyframes fadeSection{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Demon Slayer Movie - Kimetsu no Yaiba Infinity Castle</title>
+  <style>
+    :root {
+      --glass-bg: rgba(255, 255, 255, 0.08);
+      --glass-border: rgba(255, 255, 255, 0.2);
+      --text-color: #fff;
+      --muted: rgba(255, 255, 255, 0.7);
+    }
+    body, html {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+      font-family: Arial, sans-serif;
+      color: var(--text-color);
+    }
+    /* Background video */
+    .video-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1;
+    }
+    .video-background video {
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+    }
+    .container {
+      flex: 1;
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px;
+    }
+    h1, h2 {
+      font-weight: bold;
+    }
+    /* Glass box */
+    .glass-box {
+      background: var(--glass-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 16px;
+      border: 1px solid var(--glass-border);
+      padding: 24px;
+      margin-bottom: 48px;
+    }
+    /* Header bar */
+    .top-header {
+      display: flex;
+      align-items: center;
+      padding: 12px 20px;
+      background: var(--glass-bg);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--glass-border);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .top-header img {
+      height: 40px;
+      margin-right: 12px;
+    }
+    .top-header h1 {
+      font-size: 20px;
+      margin: 0;
+    }
+    /* Header + Buy Ticket */
+    .header-box {
+      text-align: center;
+      padding: 40px 20px;
+    }
+    .header-box h1 {
+      font-size: 38.8px; /* dikurangi 3% */
+      margin-bottom: 20px;
+    }
+    .buy-ticket-btn {
+      background: rgba(255, 0, 60, 0.8);
+      color: white;
+      padding: 14px 32px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .buy-ticket-btn:hover {
+      background: rgba(255, 0, 60, 1);
+    }
+    /* Poster */
+    .poster-center img {
+      max-width: 320px;
+      width: 100%;
+      display: block;
+      margin: auto;
+      border-radius: 12px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    /* Synopsis */
+    .synopsis p {
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    /* Cast */
+    .cast-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+    .cast-item {
+      text-align: center;
+    }
+    .cast-item img {
+      width: 100%;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .cast-item p {
+      margin-top: 8px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+    /* Trailer */
+    .trailer-box {
+      text-align: center;
+    }
+    .trailer-box iframe {
+      width: 80%;
+      height: 240px;
+      border-radius: 12px;
+      border: none;
+      transform: rotate(0deg);
+    }
+    /* Footer */
+    .footer {
+      background: var(--glass-bg);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-top: 1px solid var(--glass-border);
+      text-align: center;
+      padding: 16px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+  </style>
 </head>
 <body>
-<div class="hero">
-  <!-- Tombol Get Tickets di tengah atas -->
-  <a href="https://wa.me/6287714745440" class="btn-get-tickets">Only IDR 5000</a>
-
-  <video autoplay loop muted playsinline>
-    <source src="/assets/bgoverlay.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-  
-  <div class="hero-overlay">
-    <div class="hero-logo">
-      <img src="/assets/logo.png" alt="Logo">
-    </div>
-    <div class="hero-buttons">
-      <a href="https://youtu.be/mufPWqFMpmU?si=Bc-CI348dhbAeyWw" class="btn-primary" id="watchTrailer">WATCH TRAILER</a>
-      <a href="https://wa.me/6287714745440" class="btn-glass">ORDER NOW</a>
-    </div>
+  <!-- Background video -->
+  <div class="video-background">
+    <video autoplay loop muted>
+      <source src="/assets/bgoverlay.mp4" type="video/mp4">
+    </video>
   </div>
-</div>
 
-<section>
-  <h2>Synopsis</h2>
-  <p>Tanjiro Kamado – a boy who joined an organization dedicated to hunting down demons called the Demon Slayer Corps after his younger sister Nezuko was turned into a demon.
+  <!-- Top Header -->
+  <div class="top-header glass-box">
+    <img src="/assets/logo.png" alt="Logo">
+    <h1>Demon Slayer - Kimetsu no Yaiba Infinity Castle</h1>
+  </div>
 
-While growing stronger and deepening his friendships and bonds with fellow corps members, Tanjiro has battled many demons with his comrades, Zenitsu Agatsuma and Inosuke Hashibira. Along the way, his journey has led him to fight alongside the Demon Slayer Corps’ highest-ranking swordsmen, the Hashira, including Flame Hashira Kyojuro Rengoku aboard the Mugen Train, Sound Hashira Tengen Uzui within the Entertainment District, as well as Mist Hashira Muichiro Tokito and Love Hashira Mitsuri Kanroji at the Swordsmith Village.
+  <div class="container">
+    <!-- Trailer sebelum harga -->
+    <section id="trailer" class="glass-box trailer-box">
+      <h2>Official Trailer</h2>
+      <iframe src="https://www.youtube.com/embed/mufPWqFMpmU" allowfullscreen></iframe>
+    </section>
 
-As the Demon Slayer Corps members and Hashira engaged in a group strength training program, the Hashira Training, in preparation for the forthcoming battle against the demons, Muzan Kibutsuji appears at the Ubuyashiki Mansion. With the head of the Demon Corps in danger, Tanjiro and the Hashira rush to the headquarters but are plunged into a deep descent to a mysterious space by the hands of Muzan Kibutsuji.
+    <!-- Header + Buy Ticket -->
+    <div class="glass-box header-box">
+      <h1>IDR 5000</h1>
+      <a href="https://wa.me/6287714745440?text=Order%20Movie%20Demon%20Slayer%20Infinity%20Castle%0AHarga:%20IDR%205000%0APayment:%20Qris/Dana%0AKirim%20bukti%20berupa%20screenshot%20invoice%20payment." class="buy-ticket-btn">Order Now</a>
+    </div>
 
-The destination of where Tanjiro and Demon Slayer Corps have fallen is the demons’ stronghold – the Infinity Castle. And so, the battleground is set as the final battle between the Demon Slayer Corps and the demons ignites.</p>
-  <img src="/assets/demon-slayer-infinity-castle.jpg" alt="Poster">
-</section>
+    <!-- Official Poster -->
+    <section id="poster" class="glass-box">
+      <h2>Official Poster</h2>
+      <div class="poster-center">
+        <img src="/assets/demon-slayer-infinity-castle.jpg" alt="Official Poster">
+      </div>
+    </section>
+
+    <!-- Synopsis -->
+    <section id="synopsis" class="glass-box synopsis">
+      <h2>Synopsis</h2>
+      <p>
+        Tanjiro Kamado – a boy who joined an organization dedicated to hunting down demons called the Demon Slayer Corps after his younger sister Nezuko was turned into a demon.<p>
+
+        While growing stronger and deepening his friendships and bonds with fellow corps members, Tanjiro has battled many demons with his comrades, Zenitsu Agatsuma and Inosuke Hashibira. Along the way, his journey has led him to fight alongside the Demon Slayer Corps’ highest-ranking swordsmen, the Hashira, including Flame Hashira Kyojuro Rengoku aboard the Mugen Train, Sound Hashira Tengen Uzui within the Entertainment District, as well as Mist Hashira Muichiro Tokito and Love Hashira Mitsuri Kanroji at the Swordsmith Village.<p>
+
+        As the Demon Slayer Corps members and Hashira engaged in a group strength training program, the Hashira Training, in preparation for the forthcoming battle against the demons, Muzan Kibutsuji appears at the Ubuyashiki Mansion. With the head of the Demon Corps in danger, Tanjiro and the Hashira rush to the headquarters but are plunged into a deep descent to a mysterious space by the hands of Muzan Kibutsuji.<p>
+
+        The destination of where Tanjiro and Demon Slayer Corps have fallen is the demons’ stronghold – the Infinity Castle. And so, the battleground is set as the final battle between the Demon Slayer Corps and the demons ignites.
+      </p>
+    </section>
+
+    <!-- Cast -->
+    <section id="cast" class="glass-box">
+      <h2>Cast</h2>
+      <div class="cast-list">
+        <div class="cast-item">
+          <img src="/assets/cast/NatsukiHanae.jpg" alt="Tanjiro Kamado">
+          <p>Natsuki Hanae<br><small>Tanjiro Kamado</small></p>
+        </div>
+        <div class="cast-item">
+          <img src="/assets/cast/AkariKito.jpg" alt="Nezuko Kamado">
+          <p>Akari Kitō<br><small>Nezuko Kamado</small></p>
+        </div>
+        <div class="cast-item">
+          <img src="/assets/cast/HiroShimono.jpg" alt="Zenitsu Agatsuma">
+          <p>Hiro Shimono<br><small>Zenitsu Agatsuma</small></p>
+        </div>
+        <div class="cast-item">
+          <img src="/assets/cast/YoshitsuguMasuoka.jpg" alt="Inosuke Hashibira">
+          <p>Yoshitsugu Matsuoka<br><small>Inosuke Hashibira</small></p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    © 2025 Demon Slayer - All Rights Reserved
+  </footer>
 </body>
 </html>
