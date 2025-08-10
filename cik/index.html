@@ -34,6 +34,19 @@
       min-width: 100%;
       min-height: 100%;
       object-fit: cover;
+      transform: scale(1.1);
+      filter: brightness(0.6);
+    }
+    /* Overlay + Gradient */
+    .video-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.8));
+      pointer-events: none;
+      z-index: -1;
     }
     .container {
       flex: 1;
@@ -54,7 +67,7 @@
       padding: 24px;
       margin-bottom: 48px;
     }
-    /* Header bar */
+    /* Top header */
     .top-header {
       display: flex;
       align-items: center;
@@ -74,10 +87,10 @@
       font-size: 20px;
       margin: 0;
     }
-    /* Header + Buy Ticket */
+    /* Header box */
     .header-box {
       text-align: center;
-      padding: 40px 20px;
+      padding: 28px 16px;
     }
     .header-box h1 {
       font-size: 38.8px;
@@ -137,13 +150,14 @@
     }
     .trailer-box iframe {
       width: 100%;
-      height: 300px;
+      height: 520px;
       border-radius: 12px;
       border: none;
-      transform: rotate(-90deg) scale(0.7);
-      transform-origin: center;
-      display: block;
-      margin: auto;
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+    }
+    @keyframes fadeIn {
+      to { opacity: 1; }
     }
     /* Footer */
     .footer {
@@ -165,6 +179,7 @@
       <source src="/assets/bgoverlay.mp4" type="video/mp4">
     </video>
   </div>
+  <div class="video-overlay"></div>
 
   <!-- Top Header -->
   <div class="top-header glass-box">
@@ -174,7 +189,7 @@
 
   <div class="container">
 
-    <!-- Trailer moved above -->
+    <!-- Official Trailer -->
     <section id="trailer" class="glass-box trailer-box">
       <h2>Official Trailer</h2>
       <iframe src="https://www.youtube.com/embed/mufPWqFMpmU" allowfullscreen></iframe>
@@ -198,9 +213,7 @@
     <section id="synopsis" class="glass-box synopsis">
       <h2>Synopsis</h2>
       <p>
-        Tanjiro Kamado – a boy who joined an organization dedicated to hunting down demons called the Demon Slayer Corps after his younger sister Nezuko was turned into a demon.
-      </p>
-      <p>
+        Tanjiro Kamado – a boy who joined an organization dedicated to hunting down demons called the Demon Slayer Corps after his younger sister Nezuko was turned into a demon.<p>
         While growing stronger and deepening his friendships and bonds with fellow corps members, Tanjiro has battled many demons with his comrades, Zenitsu Agatsuma and Inosuke Hashibira...
       </p>
     </section>
@@ -227,7 +240,6 @@
         </div>
       </div>
     </section>
-
   </div>
 
   <!-- Footer -->
