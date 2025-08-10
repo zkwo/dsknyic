@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -133,6 +133,7 @@
     /* Trailer */
     .trailer-carousel {
       display: flex;
+      justify-content: center;
       overflow-x: auto;
       scroll-snap-type: x mandatory;
       -webkit-overflow-scrolling: touch;
@@ -143,11 +144,17 @@
     .trailer-carousel iframe {
       flex-shrink: 0;
       width: 90%;
-      max-width: 800px;
-      height: 450px;
+      max-width: 600px;
+      aspect-ratio: 16 / 9;
       border-radius: 12px;
       border: none;
       scroll-snap-align: center;
+    }
+    @media (max-width: 600px) {
+      .trailer-carousel iframe {
+        transform: rotate(0deg);
+        max-width: 100%;
+      }
     }
     /* Footer */
     .footer {
@@ -179,7 +186,7 @@
       <h2>Official Trailer</h2>
       <div class="trailer-carousel">
         <iframe 
-          data-src="https://www.youtube.com/embed/L1L4D2Wj28k?si=hM0FqR8_01eWvK9q&autoplay=1&mute=1" 
+          data-src="https://www.youtube.com/embed/mufPWqFMpmU?si=qYiagSnXJ8lidt3q&autoplay=1&mute=1" 
           title="Demon Slayer - Kimetsu no Yaiba Infinity Castle Trailer" 
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
           referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
