@@ -20,7 +20,6 @@
       font-family: Arial, sans-serif;
       color: var(--text-color);
     }
-    /* Background video */
     .video-background {
       position: fixed;
       top: 0;
@@ -44,7 +43,6 @@
     h1, h2 {
       font-weight: bold;
     }
-    /* Glass box */
     .glass-box {
       background: var(--glass-bg);
       backdrop-filter: blur(12px);
@@ -54,7 +52,6 @@
       padding: 24px;
       margin-bottom: 48px;
     }
-    /* Header bar */
     .top-header {
       display: flex;
       align-items: center;
@@ -74,7 +71,6 @@
       font-size: 20px;
       margin: 0;
     }
-    /* Header + Buy Ticket */
     .header-box {
       text-align: center;
       padding: 40px 20px;
@@ -96,7 +92,6 @@
     .buy-ticket-btn:hover {
       background: rgba(255, 0, 60, 1);
     }
-    /* Poster */
     .poster-center img {
       max-width: 320px;
       width: 100%;
@@ -106,12 +101,10 @@
       box-shadow: 0 20px 60px rgba(0,0,0,0.6);
       border: 1px solid rgba(255,255,255,0.1);
     }
-    /* Synopsis */
     .synopsis p {
       color: var(--muted);
       line-height: 1.6;
     }
-    /* Cast */
     .cast-list {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
@@ -131,28 +124,25 @@
       font-size: 14px;
       color: var(--muted);
     }
-    /* Trailer */
+    /* Trailer horizontal carousel */
     .trailer-carousel {
       display: flex;
       overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
       gap: 20px;
       padding-bottom: 10px;
+      scroll-snap-type: x mandatory;
     }
     .trailer-carousel::-webkit-scrollbar {
       display: none;
     }
     .trailer-carousel iframe {
-      flex-shrink: 0;
-      width: 90%;
-      max-width: 800px;
-      height: 450px;
+      flex: 0 0 auto;
+      width: 560px;
+      height: 315px;
       border-radius: 12px;
       border: none;
       scroll-snap-align: center;
     }
-    /* Footer */
     .footer {
       background: var(--glass-bg);
       backdrop-filter: blur(10px);
@@ -181,8 +171,9 @@
     <section id="trailer" class="glass-box">
       <h2>Official Trailer</h2>
       <div class="trailer-carousel">
-        <iframe src="https://www.youtube.com/embed/L1L4D2Wj28k?si=hM0FqR8_01eWvK9q&autoplay=1&mute=1" title="Demon Slayer - Kimetsu no Yaiba Infinity Castle Trailer" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div>
+        <iframe src="https://www.youtube.com/embed/L1L4D2Wj28k?autoplay=0&mute=0" title="Demon Slayer - Kimetsu no Yaiba Infinity Castle Trailer" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <!-- Bisa tambah trailer lain di sini -->
+      </div>
     </section>
 
     <div class="glass-box header-box">
@@ -199,15 +190,10 @@
 
     <section id="synopsis" class="glass-box synopsis">
       <h2>Synopsis</h2>
-      <p>
-        Tanjiro Kamado – a boy who joined an organization dedicated to hunting down demons called the Demon Slayer Corps after his younger sister Nezuko was turned into a demon.</p>
-      <p>
-        While growing stronger and deepening his friendships and bonds with fellow corps members, Tanjiro has battled many demons with his comrades, Zenitsu Agatsuma and Inosuke Hashibira. Along the way, his journey has led him to fight alongside the Demon Slayer Corps’ highest-ranking swordsmen, the Hashira, including Flame Hashira Kyojuro Rengoku aboard the Mugen Train, Sound Hashira Tengen Uzui within the Entertainment District, as well as Mist Hashira Muichiro Tokito and Love Hashira Mitsuri Kanroji at the Swordsmith Village.</p>
-      <p>
-        As the Demon Slayer Corps members and Hashira engaged in a group strength training program, the Hashira Training, in preparation for the forthcoming battle against the demons, Muzan Kibutsuji appears at the Ubuyashiki Mansion. With the head of the Demon Corps in danger, Tanjiro and the Hashira rush to the headquarters but are plunged into a deep descent to a mysterious space by the hands of Muzan Kibutsuji.</p>
-      <p>
-        The destination of where Tanjiro and Demon Slayer Corps have fallen is the demons’ stronghold – the Infinity Castle. And so, the battleground is set as the final battle between the Demon Slayer Corps and the demons ignites.
-      </p>
+      <p>Tanjiro Kamado – a boy who joined an organization dedicated to hunting down demons called the Demon Slayer Corps after his younger sister Nezuko was turned into a demon.</p>
+      <p>While growing stronger and deepening his friendships and bonds with fellow corps members, Tanjiro has battled many demons with his comrades, Zenitsu Agatsuma and Inosuke Hashibira. Along the way, his journey has led him to fight alongside the Demon Slayer Corps’ highest-ranking swordsmen, the Hashira, including Flame Hashira Kyojuro Rengoku aboard the Mugen Train, Sound Hashira Tengen Uzui within the Entertainment District, as well as Mist Hashira Muichiro Tokito and Love Hashira Mitsuri Kanroji at the Swordsmith Village.</p>
+      <p>As the Demon Slayer Corps members and Hashira engaged in a group strength training program, the Hashira Training, in preparation for the forthcoming battle against the demons, Muzan Kibutsuji appears at the Ubuyashiki Mansion. With the head of the Demon Corps in danger, Tanjiro and the Hashira rush to the headquarters but are plunged into a deep descent to a mysterious space by the hands of Muzan Kibutsuji.</p>
+      <p>The destination of where Tanjiro and Demon Slayer Corps have fallen is the demons’ stronghold – the Infinity Castle. And so, the battleground is set as the final battle between the Demon Slayer Corps and the demons ignites.</p>
     </section>
 
     <section id="cast" class="glass-box">
